@@ -1,0 +1,18 @@
+# Environments and credentials (NEVER commit to version control)
+.env
+backend/.env
+frontend/.env
+*.env
+**/.env
+**/.env.*
+
+# Python environments and cache
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Node dependencies and build output
+node_modules/
+dist/
+.DS_Store
