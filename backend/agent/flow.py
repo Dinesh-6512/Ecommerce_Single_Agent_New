@@ -336,6 +336,8 @@ def run_store_agent(question: str, user_id: int, db: Optional[Session] = None) -
         answer = result.get("answer", "")
         if trace:
             trace.update(output={"answer": answer})
+            if hasattr(trace, "end"):
+                trace.end()
         if client:
             client.flush()
         return answer
@@ -346,6 +348,8 @@ def run_store_agent(question: str, user_id: int, db: Optional[Session] = None) -
                 level="ERROR",
                 status_message=str(e)[:200]
             )
+            if hasattr(trace, "end"):
+                trace.end()
         if client:
             client.flush()
         raise e
